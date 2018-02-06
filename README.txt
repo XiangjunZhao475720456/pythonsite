@@ -1,9 +1,9 @@
 pythonsite
 
 2018-02-06
-本项目旨在开发一套接口自动化测试工具<br/>
-1、本项目主体框架采用flask web框架，并结合flask-script、flask-migrate、flask-sqlalchemy做数据库迁移<br/>
-2、ubuntu环境中安装及使用pip来安装依赖库<br/>
+本项目旨在开发一套接口自动化测试工具
+1、本项目主体框架采用flask web框架，并结合flask-script、flask-migrate、flask-sqlalchemy做数据库迁移
+2、ubuntu环境中安装及使用pip来安装依赖库
 安装pip3：
 sudo apt install python3-pip
 安装虚拟环境：

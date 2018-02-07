@@ -1,33 +1,18 @@
-import config
-from flask import Flask, render_template
+from app import app, db
+from app.models.teacher import Teacher
 
-app = Flask(__name__)
 
-app.config.from_object(config)
-
+@app.route('/add')
+def add():
+    teacher = Teacher(name='Rose',age=25,gender='女')
+    db.session.add(teacher)
+    db.session.commit()
+    db.session.close()
+    return '添加成功'
 
 @app.route('/')
-def hello_world():
-    return 'Hello World!'
-
-
-@app.route('/index')
 def index():
-    content = {
-        "user":"XiangjunZhao",
-        "gender":"男"
-
-    }
-    return render_template('index.html',**content)
-
-
-# @app.route('/add')
-# def add():
-#     teacher = Teacher(name='Tom',age=25)
-#     db.session.add(teacher)
-#     db.session.commit()
-#     return '添加用户成功'
-
+    return 'Hello World!'
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')

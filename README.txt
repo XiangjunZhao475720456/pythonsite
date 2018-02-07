@@ -14,6 +14,7 @@ source ./activate
 pip3 install flask
 pip3 install flask-script
 pip3 install flask-migrate
-pip3 install flak-sqlalchemy
+pip3 install flask-sqlalchemy
+pip3 install flask-bootstrap
 退出虚拟环境：
 deactivate

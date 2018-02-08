@@ -10,6 +10,9 @@ class Teacher(db.Model):
     hiredate = db.Column(db.DATETIME,nullable=True)
     salary = db.Column(db.String(20),nullable=True)
 
+    def __repr__(self):
+        return '<Teacher %r>' % (self.name)
+
 class User(db.Model):
     __tablename__ = 'user'
     id = db.Column(db.Integer, primary_key=True)

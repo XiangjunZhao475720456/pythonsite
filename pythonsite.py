@@ -2,7 +2,7 @@ from flask import render_template, flash, redirect
 
 from app import app, db
 from app.forms.loginform import LoginForm
-from app.models.teacher import Teacher
+from app.models.teachermodel import Teacher
 
 
 @app.route('/add')

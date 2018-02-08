@@ -21,5 +21,6 @@ pip3 install flask-migrate
 pip3 install flask-sqlalchemy
 pip3 install flask-bootstrap3
 pip3 install flask-wtf
+pip3 install flask-login
 退出虚拟环境：
 deactivate

@@ -3,7 +3,7 @@ from app import db, app
 from flask_migrate import Migrate, MigrateCommand
 from flask_script import Manager
 
-from app.models.teacher import Teacher
+from app.models.teachermodel import Teacher,User,Post
 
 manager = Manager(app)
 migrate = Migrate(app, db)

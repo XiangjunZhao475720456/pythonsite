@@ -1,9 +1,11 @@
 #! encoding:utf-8
-from app import db, app
+
 from flask_migrate import Migrate, MigrateCommand
 from flask_script import Manager
 
-from app.models.teachermodel import Teacher,User,Post
+from commonapp.models.usermodel import User
+from pythonsite import db, app
+
 
 manager = Manager(app)
 migrate = Migrate(app, db)

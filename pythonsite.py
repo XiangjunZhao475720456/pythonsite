@@ -1,18 +1,20 @@
-from app import app, db
-from app.models.teacher import Teacher
+from flask import Flask, redirect, url_for
+from flask_bootstrap3 import Bootstrap
+from flask_sqlalchemy import SQLAlchemy
 
+from commonapp import common
 
-@app.route('/add')
-def add():
-    teacher = Teacher(name='Rose',age=25,gender='女')
-    db.session.add(teacher)
-    db.session.commit()
-    db.session.close()
-    return '添加成功'
+app = Flask(__name__)
+app.config.from_object('config')
+db = SQLAlchemy(app)
+bootstrap = Bootstrap(app)
+
 
 @app.route('/')
 def index():
-    return 'Hello World!'
+    return redirect(url_for('common.home'))
+
 
 if __name__ == '__main__':
+    app.register_blueprint(common)
     app.run(host='0.0.0.0')

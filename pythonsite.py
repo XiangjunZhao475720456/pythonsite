@@ -1,3 +1,4 @@
+#! encoding:utf-8
 from flask import Flask, redirect, url_for
 from flask_bootstrap3 import Bootstrap
 from flask_sqlalchemy import SQLAlchemy

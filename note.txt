@@ -1,0 +1,292 @@
+========================================================================
+git常用命令https://jingyan.baidu.com/article/219f4bf78955dcde442d3886.html
+http://www.linuxidc.com/Linux/2016-09/135527.htm
+1、安装git
+sudo apt install git
+
+2、配置git用户名和邮箱
+git config --global user.name '***'
+git config --global user.email '***'
+
+3、创建公钥
+ssh-keygen -C 'you email address@gmail.com' -t rsa
+
+4、创建完公钥后，需要上传。使用命令cd ~/.ssh进入~/.ssh文件夹，输入gedit id_rsa.pub打开id_rsa.pub文件，复制其中所有内容。接着访问http://git.oschina.net/profile网页，点击SSH公钥，标题栏可以随意输入，公钥栏把你刚才复制的内容粘贴进去就OK了。
+
+5、先在本地创建一个文件夹，再使用git init指令初始化一个git仓库
+
+6、输入git add 要添加的文件，添加到git本地仓库，再输入git commit -m "注释"提交至仓库。
+
+7、关联远程仓库
+git remote add origin https://github.com/XiangjunZhao475720456/python.git
+删除关联的远程仓库
+git remote rm origin
+向仓库推送文件
+git push -u origin master
+
+…or create a new repository on the command line
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/XiangjunZhao475720456/pythonsite.git
+git push -u origin master
+
+…or push an existing repository from the command line
+git remote add origin https://github.com/XiangjunZhao475720456/pythonsite.git
+git push -u origin master
+
+…or import code from another repository
+You can initialize this repository with code from a Subversion, Mercurial, or TFS project.
+
+8、git创建分支
+git checkout -b dev
+相当于以下2部分
+git branch dev
+git checkout dev
+
+9、查看分支
+git branch
+
+10、切换分支
+git checkout master
+
+11、合并代码到主干分支：先将分支切换回master，再使用git merge dev合并，最后push到远程仓库
+
+========================================================================
+将master上的内容同步到dev分支上
+1. 切换到master分支
+git checkout master
+
+2. 将远程master同步到本地 master
+git pull origin master
+
+3. 切换到的本地开发分支dev
+git checkout dev
+
+4. 合并本地master到本地的开发分支dev
+git merge master
+
+5.推送更新到远程开发分支dev
+git push origin dev
+
+
+将自己分支的内容merge到remote master上 (下班最后一件事)
+1. 切换到本地开发分支dev, 并提交代码
+git checkout dev
+git status
+git add .
+git commit -m "备注"
+
+2. 切换到本地master，将远程master的更新下载到本地
+git checkout master
+git pull origin masterr 
+
+3. 将本地开发分支merge到本地master
+git merge dev
+
+4. 将本地master推送更新到远程master
+git push origin master
+
+5. 将本地开发分支dev推送更新到远程开发分支dev
+git checkout dev
+git push origin de
+
+========================================================================
+ubuntu安装VM虚拟机
+sudo apt-get remove gtk2-engines-murrine
+sudo apt-get install gtk2-engines-murrine
+
+sudo locate libcanberra-gtk-module.so
+vim /etc/ld.so.conf.d/gtk-2.0.conf
+写入 /usr/lib/x86_64-linux-gnu/gtk-2.0/modules
+sudo ldconfig
+
+sudo ./VMware-Workstation-Full-12.5.9-7535481.x86_64.bundle
+
+========================================================================
+安装pip3
+sudo apt install python3-pip
+
+查看pip3版本
+pip3 -V
+
+安装虚拟环境
+sudo pip3 install virtualenv
+
+激活虚拟环境
+source ./activate
+
+退出虚拟环境
+deactivate
+
+pip3 install flask-script
+pip3 install flask-migrate
+pip3 install flak-sqlalchemy
+pip3 install sqlalchemy
+pip3 install flask
+pip3 install flask-login
+pip3 install flask-openid
+pip3 install flask-mail
+pip3 install sqlalchemy-migrate
+pip3 install flask-whooshalchemy
+表单
+pip3 install flask-wtf
+pip3 install flask-babel
+pip3 install guess_language
+pip3 install flipflop
+pip3 install coverage
+
+========================================================================
+pycharm 激活（JetBrains IDEA 系列产品通用激活方法）
+1、打开激活窗口
+2、选择 Activate new license with License server （用license server 激活）
+3、在 License sever address 处填入 https://jetlicense.nss.im/
+4、点击 Activate 进行认证
+5、done！
+
+========================================================================
+一、安装
+sudo apt-get install mysql-server 数据库服务器、用于管理数据库与表、控制用户访问、以及处理 SQL 查询
+apt-get isntall mysql-client MySQL 客户端程序、实现用户与服务器的连接与交互功能
+sudo apt-get install libmysqlclient-dev编译使用 MySQL 的其他程序的过程中会用到的一些库及头文件。
+
+二、管理
+1、关闭mysql服务器
+cd /usr/bin
+./mysqladmin -u root -p shutdown
+
+2、启动mysql服务器
+/etc/init.d/mysql start
+
+3.连接mysql服务器
+mysql -u root -p
+
+4、确定mysql服务器是否运行
+ps -ef |grep mysqld
+
+5、创建一个名为TEST的数据库
+mysqladmin -u root -p create TEST
+
+6、删除一个名为TEST的数据库
+mysqladmin -u root -p drop TEST //显示是否删除数据库的时候记得输入y！
+
+7、选择名为test的数据库
+mysql -u root -p
+show databases;//检查是否有test这个数据库
+use test;
+
+三、简单操作
+1、创建一个也test_id为主键、含有test_id和test_name的表
+CREATE TABLE test(
+    -> test_id INT NOT NULL AUTO_INCREMENT,
+    -> test_name VARCHAR(40) NOT NULL,
+    -> PRIMARY KEY (test_id));
+
+2、删除表test
+drop table test ；
+
+3、插入数据
+insert into test (test_name) values ("zk");
+//没有写test_id是因为他是AUTO_INCREMENT
+
+4、查询数据
+select * from test ；
+where查询、查询test_id为1的所有数据
+select * from test where test_id='1';
+
+5、更改数据
+更改test_id为1的test_name为zklove
+update test
+-> set test_name='zklove'
+-> where test_id='1';
+
+6、删除数据
+删除test_id为2的所有数据
+delete from test where test_id=2;
+
+========================================================================
+Ubuntu 16.04 设置MySQL远程访问权限
+本文记录一下在Ubuntu 16.04版本下设置MySQL数据库的远程访问。
+
+第一步：修改配置文件的端口绑定
+打开的目录可能会根据MySQL的版本稍有不同、可以先尝试打开/etc/mysql/my.cnf这个配置文件、若该文件不存在或文件内容为空、则尝试下面的文件路径。
+
+sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
+在下面行的开头加上#、注释掉该行、然后保存退出vim：
+
+bind-address = 127.0.0.1
+第二步：修改访问权限
+进入mysql,输入如下命令、输入密码、进入mysql命令行
+
+mysql -u root -p
+授权root用户访问权限、并刷新权限、此处的root可用其它MySQL用户替换、pwd部分需替换为该用户对应的密码
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'password' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+EXIT;
+
+第三步：重启mysql服务
+service mysql restart
+
+设置sql_mode
+sql_mode=STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
+character-set-server=utf8
+
+========================================================================
+SQLALchemy
+https://www.imooc.com/article/details/id/22343
+https://www.keakon.net/2012/12/03/SQLAlchemy%E4%BD%BF%E7%94%A8%E7%BB%8F%E9%AA%8C
+
+SQLAlchremy数据库迁移
+https://www.cnblogs.com/senlinyang/p/8387007.html
+
+pip install flask-script
+pip install flask-migrate
+pip install flask-sqlalchemy
+
+
+1、创建数据库连接引擎
+dialect[+driver]://user:password@host:port/dbname[?key=value..]
+engine = create_engine("mysql+pymysql://root:root@localhost:3306/pythonsite",encoding="utf-8", echo=True)
+
+2、创建连接会话
+Session = sessionmaker(bind = engine)
+session = Session()
+
+3、创建基础类
+# 引入需要的模块 
+from sqlalchemy.ext.declarative import declarative_base 
+# 创建基础类 
+BaseModel = declarative_base()
+
+4、数据类型创建
+# 引入需要的模块 
+from sqlalchemy import Column, String, Integer 
+# 创建用户类型 
+class User(BaseModel): 
+	# 定义和指定数据库表之间的关联
+	__tabelname__ = "user"
+	# 创建字段类型 
+	id = Column(Integer, primary_key=True) 
+	name = Column(String(50)) 
+	age = Column(Integer)
+
+通过Base.metadata.create_all()操作会检查目标数据库中是否有需要创建的表，不存在的情况下创建对应的表
+
+========================================================================
+Pycharm Professional Edition 激活码（license）(Yep, 请复制以下全部内容）
+EB101IWSWD-eyJsaWNlbnNlSWQiOiJFQjEwMUlXU1dEIiwibGljZW5zZWVOYW1lIjoibGFuIHl1IiwiYXNzaWduZWVOYW1lIjoiIiwiYXNzaWduZWVFbWFpbCI6IiIsImxpY2Vuc2VSZXN0cmljdGlvbiI6IkZvciBlZHVjYXRpb25hbCB1c2Ugb25seSIsImNoZWNrQ29uY3VycmVudFVzZSI6ZmFsc2UsInByb2R1Y3RzIjpbeyJjb2RlIjoiSUkiLCJwYWlkVXBUbyI6IjIwMTgtMTAtMTQifSx7ImNvZGUiOiJSUzAiLCJwYWlkVXBUbyI6IjIwMTgtMTAtMTQifSx7ImNvZGUiOiJXUyIsInBhaWRVcFRvIjoiMjAxOC0xMC0xNCJ9LHsiY29kZSI6IlJEIiwicGFpZFVwVG8iOiIyMDE4LTEwLTE0In0seyJjb2RlIjoiUkMiLCJwYWlkVXBUbyI6IjIwMTgtMTAtMTQifSx7ImNvZGUiOiJEQyIsInBhaWRVcFRvIjoiMjAxOC0xMC0xNCJ9LHsiY29kZSI6IkRCIiwicGFpZFVwVG8iOiIyMDE4LTEwLTE0In0seyJjb2RlIjoiUk0iLCJwYWlkVXBUbyI6IjIwMTgtMTAtMTQifSx7ImNvZGUiOiJETSIsInBhaWRVcFRvIjoiMjAxOC0xMC0xNCJ9LHsiY29kZSI6IkFDIiwicGFpZFVwVG8iOiIyMDE4LTEwLTE0In0seyJjb2RlIjoiRFBOIiwicGFpZFVwVG8iOiIyMDE4LTEwLTE0In0seyJjb2RlIjoiUFMiLCJwYWlkVXBUbyI6IjIwMTgtMTAtMTQifSx7ImNvZGUiOiJDTCIsInBhaWRVcFRvIjoiMjAxOC0xMC0xNCJ9LHsiY29kZSI6IlBDIiwicGFpZFVwVG8iOiIyMDE4LTEwLTE0In0seyJjb2RlIjoiUlNVIiwicGFpZFVwVG8iOiIyMDE4LTEwLTE0In1dLCJoYXNoIjoiNjk0NDAzMi8wIiwiZ3JhY2VQZXJpb2REYXlzIjowLCJhdXRvUHJvbG9uZ2F0ZWQiOmZhbHNlLCJpc0F1dG9Qcm9sb25nYXRlZCI6ZmFsc2V9-Gbb7jeR8JWOVxdUFaXfJzVU/O7c7xHQyaidCnhYLp7v32zdeXiHUU7vlrrm5y9ZX0lmQk3plCCsW+phrC9gGAPd6WDKhkal10qVNg0larCR2tQ3u8jfv1t2JAvWrMOJfFG9kKsJuw1P4TozZ/E7Qvj1cupf/rldhoOmaXMyABxNN1af1RV3bVhe4FFZe0p7xlIJF/ctZkFK62HYmh8V3AyhUNTzrvK2k+t/tlDJz2LnW7nYttBLHld8LabPlEEjpTHswhzlthzhVqALIgvF0uNbIJ5Uwpb7NqR4U/2ob0Z+FIcRpFUIAHEAw+RLGwkCge5DyZKfx+RoRJ/In4q/UpA==-MIIEPjCCAiagAwIBAgIBBTANBgkqhkiG9w0BAQsFADAYMRYwFAYDVQQDDA1KZXRQcm9maWxlIENBMB4XDTE1MTEwMjA4MjE0OFoXDTE4MTEwMTA4MjE0OFowETEPMA0GA1UEAwwGcHJvZDN5MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxcQkq+zdxlR2mmRYBPzGbUNdMN6OaXiXzxIWtMEkrJMO/5oUfQJbLLuMSMK0QHFmaI37WShyxZcfRCidwXjot4zmNBKnlyHodDij/78TmVqFl8nOeD5+07B8VEaIu7c3E1N+e1doC6wht4I4+IEmtsPAdoaj5WCQVQbrI8KeT8M9VcBIWX7fD0fhexfg3ZRt0xqwMcXGNp3DdJHiO0rCdU+Itv7EmtnSVq9jBG1usMSFvMowR25mju2JcPFp1+I4ZI+FqgR8gyG8oiNDyNEoAbsR3lOpI7grUYSvkB/xVy/VoklPCK2h0f0GJxFjnye8NT1PAywoyl7RmiAVRE/EKwIDAQABo4GZMIGWMAkGA1UdEwQCMAAwHQYDVR0OBBYEFGEpG9oZGcfLMGNBkY7SgHiMGgTcMEgGA1UdIwRBMD+AFKOetkhnQhI2Qb1t4Lm0oFKLl/GzoRykGjAYMRYwFAYDVQQDDA1KZXRQcm9maWxlIENBggkA0myxg7KDeeEwEwYDVR0lBAwwCgYIKwYBBQUHAwEwCwYDVR0PBAQDAgWgMA0GCSqGSIb3DQEBCwUAA4ICAQC9WZuYgQedSuOc5TOUSrRigMw4/+wuC5EtZBfvdl4HT/8vzMW/oUlIP4YCvA0XKyBaCJ2iX+ZCDKoPfiYXiaSiH+HxAPV6J79vvouxKrWg2XV6ShFtPLP+0gPdGq3x9R3+kJbmAm8w+FOdlWqAfJrLvpzMGNeDU14YGXiZ9bVzmIQbwrBA+c/F4tlK/DV07dsNExihqFoibnqDiVNTGombaU2dDup2gwKdL81ua8EIcGNExHe82kjF4zwfadHk3bQVvbfdAwxcDy4xBjs3L4raPLU3yenSzr/OEur1+jfOxnQSmEcMXKXgrAQ9U55gwjcOFKrgOxEdek/Sk1VfOjvS+nuM4eyEruFMfaZHzoQiuw4IqgGc45ohFH0UUyjYcuFxxDSU9lMCv8qdHKm+wnPRb0l9l5vXsCBDuhAGYD6ss+Ga+aDY6f/qXZuUCEUOH3QUNbbCUlviSz6+GiRnt1kA9N2Qachl+2yBfaqUqr8h7Z2gsx5LcIf5kYNsqJ0GavXTVyWh7PYiKX4bs354ZQLUwwa/cG++2+wNWP+HtBhVxMRNTdVhSm38AknZlD+PTAsWGu9GyLmhti2EnVwGybSD2Dxmhxk3IPCkhKAK+pl0eWYGZWG3tJ9mZ7SowcXLWDFAk0lRJnKGFMTggrWjV8GYpw5bq23VmIqqDLgkNzuoog==
+
+激活方式： 
+首先在activation code 中键入上述激活码，然后在hosts文件中添加以下代码 (屏蔽掉Pycharm对激活码的验证)
+
+0.0.0.0 account.jetbrains.com
+Linux hosts 文件在/etc/hosts 
+Windows hosts 文件在 C:\Windows\System32\drivers\etc\hosts
+
+========================================================================
+Linux递归删除
+find . -name "*.o"  | xargs rm -f
+
+========================================================================
+http://www.pythondoc.com/flask-mega-tutorial/index.html
+http://blog.csdn.net/jmilk/article/details/53539710

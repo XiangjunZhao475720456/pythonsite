@@ -3,7 +3,7 @@
 from flask_migrate import Migrate, MigrateCommand
 from flask_script import Manager
 
-from commonapp.models.usermodel import User
+from commonapp.models.usermodel import User, Role
 from pythonsite import db, app
 
 manager = Manager(app)

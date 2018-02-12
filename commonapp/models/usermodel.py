@@ -4,9 +4,9 @@ import datetime
 from functools import reduce
 from operator import or_
 
-from flask_security import UserMixin, RoleMixin, SQLAlchemyUserDatastore, Security
+from flask_security import UserMixin, RoleMixin
 
-from pythonsite import db, app
+from exts import db
 
 
 class Permission(object):
@@ -71,12 +71,4 @@ class User(db.Model, UserMixin):
 
     def can_admin(self):
         return self.can(Permission.ADMINISTER)
-
-user_datastore = SQLAlchemyUserDatastore(db,User,Role)
-security = Security(app,user_datastore)
-
-@security.login_context_processor
-def security_login_context_processor():
-    print('Login')
-    return {}
 

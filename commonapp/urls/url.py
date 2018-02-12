@@ -1,6 +1,5 @@
 #! encoding:utf-8
 
-from commonapp import common, home, login
+from commonapp import common, login
 
-common.add_url_rule(rule='/login',endpoint='login',view_func=login,methods=['GET'])
-common.add_url_rule(rule='/', endpoint='home', view_func=home, methods=['GET'])
+common.add_url_rule(rule='/login', endpoint='login', view_func=login, methods=['GET'])

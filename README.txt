@@ -24,6 +24,8 @@ pythonsite
 |
 |____config.py 配置文件
 |
+|____exts.py 扩展组件
+|
 |____manage.py 数据库迁移文件
 |
 |____pythonsite.py 项目程序主入口
@@ -53,5 +55,6 @@ pip3 install flask-bootstrap3
 pip3 install flask-wtf
 pip3 install flask-login
 pip3 install flask-security
+pip3 install flask-admin
 退出虚拟环境：
 deactivate

@@ -1,4 +1,19 @@
-{% extends "bootstrap/base.html" %}
+{% extends "basetemp.html" %}
 {% block body_content %}
-    <p>login</p>
+    <h1>Sign In</h1>
+    <form action="{{ url_for('common.login') }}" method="post">
+        {{ login_form.csrf_token }}
+        <p>
+            <label>用户名：</label>{{ login_form.username(style = 'width:150px;display:inline-block') }}
+        </p>
+        <p>
+            <label>密&nbsp;&nbsp;&nbsp;码：</label>{{ login_form.password(style='width:150px',placeholder='请输入密码') }}
+        </p>
+        <p>
+            <label style="text-align:center">{{ login_form.remember_me(style='width:16px;height:16px') }}记住我</label>
+        </p>
+        <p>
+            {{ login_form.submit }}
+        </p>
+    </form>
 {% endblock %}

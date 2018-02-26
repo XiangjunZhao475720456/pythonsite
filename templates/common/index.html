@@ -1,4 +1,19 @@
+{#{% extends "basetemp.html" %}#}
+{#{% block body_content %}#}
+{#    {% block container %}#}
+{#        {% block top %}#}
+{#            <h1>Hello, {{ nickname }}!</h1>#}
+{#        {% endblock %}#}
+{#        {% block body %}#}
+{#        {% endblock %}#}
+{#    {% endblock %}#}
+{#{% endblock %}#}
+
 {% extends "bootstrap/base.html" %}
 {% block body_content %}
-    <h1>Hello, {{nickname}}!</h1>
+    {% block navbar %}
+        {% block topbar %}
+            {{ nav.top.render() }}
+        {% endblock %}
+    {% endblock %}
 {% endblock %}

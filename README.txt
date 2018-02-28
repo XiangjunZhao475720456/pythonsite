@@ -48,6 +48,7 @@ virtualenv venv
 source ./venv/bin/activate
 在虚拟环境中安装三方库：
 pip3 install flask
+pip3 install pymysql
 pip3 install flask-script
 pip3 install flask-migrate
 pip3 install flask-sqlalchemy
@@ -56,5 +57,7 @@ pip3 install flask-wtf
 pip3 install flask-login
 pip3 install flask-security
 pip3 install flask-admin
+pip3 install flask-nav
+
 退出虚拟环境：
 deactivate

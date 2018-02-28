@@ -153,7 +153,7 @@ pycharm 激活（JetBrains IDEA 系列产品通用激活方法）
 ========================================================================
 一、安装
 sudo apt-get install mysql-server 数据库服务器、用于管理数据库与表、控制用户访问、以及处理 SQL 查询
-apt-get isntall mysql-client MySQL 客户端程序、实现用户与服务器的连接与交互功能
+sudo apt-get install mysql-client 客户端程序、实现用户与服务器的连接与交互功能
 sudo apt-get install libmysqlclient-dev编译使用 MySQL 的其他程序的过程中会用到的一些库及头文件。
 
 二、管理

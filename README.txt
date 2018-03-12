@@ -18,7 +18,7 @@ pythonsite
 |
 |____templates 模板
 |
-|____venv 项目虚拟环境
+|____venv 项目虚拟环境(此目录不上传)
 |
 |____.gitignore git忽略文档
 |
@@ -58,6 +58,5 @@ pip3 install flask-login
 pip3 install flask-security
 pip3 install flask-admin
 pip3 install flask-nav
-
 退出虚拟环境：
 deactivate

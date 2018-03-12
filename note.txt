@@ -298,3 +298,5 @@ find . -name "*.o"  | xargs rm -f
 ========================================================================
 http://www.pythondoc.com/flask-mega-tutorial/index.html
 http://blog.csdn.net/jmilk/article/details/53539710
+Flask参考博文
+http://www.bjhee.com/flask-ad4.html

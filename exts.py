@@ -37,6 +37,3 @@ nav.register_element('top',Navbar('Flask自动化测试平台',
 def load_user(id):
     from commonapp.models.usermodel import User
     return User.query.filter_by(id = id).first()
-
-
-

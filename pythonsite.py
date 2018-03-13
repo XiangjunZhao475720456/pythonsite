@@ -15,7 +15,6 @@ def index():
 
 
 if __name__ == '__main__':
-
     from exts import *
     from commonapp import common
 

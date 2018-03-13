@@ -5,4 +5,11 @@
             {{ nav.top.render() }}
         {% endblock %}
     {% endblock %}
+
+    {% if current_user.is_authenticated %}
+        姓名：{{ current_user.username }}
+        <a href={{ url_for('common.changepwd') }}>修改密码</a>
+        <a href={{ url_for('common.logout') }}>退出</a>
+    {% endif %}
+
 {% endblock %}

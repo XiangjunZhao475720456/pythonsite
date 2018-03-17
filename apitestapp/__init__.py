@@ -2,9 +2,9 @@
 
 from flask import Blueprint
 
-interface = Blueprint(name='interface', import_name='__name__', static_folder='static/interface',
-                   template_folder='templates/interface',
-                   url_prefix='/interface')
+apitest = Blueprint(name='apitest', import_name='__name__', static_folder='static/apitest',
+                   template_folder='templates/apitest',
+                   url_prefix='/apitest')
 
 from .views.interfaceview import *
 from .urls.url import *

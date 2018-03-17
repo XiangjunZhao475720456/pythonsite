@@ -17,6 +17,8 @@ def index():
 if __name__ == '__main__':
     from exts import *
     from commonapp import common
+    from apitestapp import apitest
 
     app.register_blueprint(common)
+    app.register_blueprint(apitest)
     app.run(host='0.0.0.0')

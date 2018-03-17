@@ -11,6 +11,7 @@ migrate = Migrate(app, db)
 manager.add_command('db', MigrateCommand)
 
 from commonapp.models.usermodel import User, Role
+from apitestapp.models.interfacemodel import CaseResult,InterfaceCase,Interface,Module,Project
 
 if __name__ == '__main__':
     manager.run()

@@ -58,7 +58,7 @@ class User(db.Model, UserMixin):
     _password = db.Column(db.String(255), nullable=False, comment='密码')
     active = db.Column(db.Boolean(), nullable=False, comment='用户是否处于激活状态', server_default='1')
     create_date = db.Column(db.TIMESTAMP, nullable=False, server_default=func.now())
-    roles = db.relationship('Role', secondary=common_role_user, backref=db.backref('users', lazy='dynamic'))
+    role = db.relationship('Role', secondary=common_role_user, backref=db.backref('user', lazy='dynamic'))
 
     def __init__(self, username=None, realname=None, password=None, gender=None, phone=None, email=None):
         self.username = username
